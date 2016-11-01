@@ -1,10 +1,12 @@
+import java.util.*;
+
 public class Car{
   private String name;
-  private Diesel[] tank;
+  private ArrayList<Consumable> tank;
 
   public Car(String name){
     this.name = name;
-    this.tank = new Diesel[50];
+    this.tank = new ArrayList<Consumable>();
   }
 
   public String getName(){
@@ -12,14 +14,11 @@ public class Car{
   }
 
   public int fuelCount(){
-    int counter = 0;
+    return this.tank.size();
+  }
 
-    for (Diesel fuel : tank) {
-      if (fuel != null) {
-        counter++;
-      }
-    }
-    return counter;
+  public void refuel(Consumable fuel) {
+    this.tank.add(fuel);
   }
 
 
